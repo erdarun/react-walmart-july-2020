@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.js"></script>
+</head>
+
+<body>
+    <h2>React Application</h2>
+    <div id="app1"></div>
+    <div id="app2"></div>
+    <div id="app3"></div>
+    <div id="app4"></div>
+
+    <script type="text/babel">
+
+        //Create a custom element <h3 id="hId">Hello React</h3>
+        var element = React.createElement("h3", {id: "hId"}, "Hello React");
+        ReactDOM.render(element, document.getElementById("app1"));
+
+        var element1 = React.createElement("h3", null, 
+                React.createElement("p", null, "Hello React with Child elements"));
+        ReactDOM.render(element1, document.getElementById("app2"));
+
+        //JSX
+        ReactDOM.render(<h3><p>Hello JSX</p></h3>, document.getElementById("app3"));
+
+        //Components
+        var MyComponent = function(){
+            // return the JSX
+            return (
+               <div>
+                    <h4>Hello React Component</h4>
+                    <p>This is a React componenet </p>
+                </div>
+            )
+        }
+        ReactDOM.render(<MyComponent/>, document.getElementById("app4"));
+    </script>
+</body>
+
+</html>
